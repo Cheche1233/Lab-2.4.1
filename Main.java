@@ -36,24 +36,24 @@ class Bicicleta {
 // Clase componente Rueda
 class Rueda {
     // Atributos de la clase Rueda
-    private int tamaño;
+    private int presion; // Presión de la rueda
     private String color;
-    private String material;
+    private String tipoRueda; // Tipo de rueda (resina, caucho, etc.)
 
     // Constructor de la clase Rueda
-    public Rueda(int tamaño, String color, String material) {
-        this.tamaño = tamaño;
+    public Rueda(int presion, String color, String tipoRueda) {
+        this.presion = presion;
         this.color = color;
-        this.material = material;
+        this.tipoRueda = tipoRueda;
     }
 
     // Métodos getter y setter para los atributos de la clase Rueda
-    public int getTamaño() {
-        return tamaño;
+    public int getPresion() {
+        return presion;
     }
 
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
+    public void setPresion(int presion) {
+        this.presion = presion;
     }
 
     public String getColor() {
@@ -64,22 +64,21 @@ class Rueda {
         this.color = color;
     }
 
-    public String getMaterial() {
-        return material;
+    public String getTipoRueda() {
+        return tipoRueda;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setTipoRueda(String tipoRueda) {
+        this.tipoRueda = tipoRueda;
     }
 
 }
-
 // Clase componente Cuadro
 class Cuadro {
     // Atributos de la clase Cuadro
-    private String material;
-    private String tipo;
-    private String tamaño;
+    private String material; //{Acero, aluminio, fibra de carbono y titanio}
+    private String tipo; 
+    private String tamaño; 
 
     // Constructor de la clase Cuadro
     public Cuadro(String material, String tipo, String tamaño) {
@@ -118,8 +117,8 @@ class Cuadro {
 public class Main {
     public static void main(String[] args) {
         // Crear las ruedas
-        Rueda ruedaDelantera = new Rueda(26, "Negro", "Aluminio");
-        Rueda ruedaTrasera = new Rueda(26, "Negro", "Aluminio");
+        Rueda ruedaDelantera = new Rueda(35, "Negro", "Aluminio");
+        Rueda ruedaTrasera = new Rueda(35, "Negro", "Aluminio");
 
         // Crear un cuadro
         Cuadro cuadro = new Cuadro("Aluminio", "MTB", "Grande");
@@ -129,9 +128,9 @@ public class Main {
 
         // Imprimir la marca de la bicicleta
         System.out.println("Marca de la bicicleta: " + bicicleta.getMarca());
-        // Imprimir el tamaño de la rueda delantera
-        System.out.println("Tamaño de la rueda delantera: " + bicicleta.getRuedaDelantera().getTamaño() + " pulgadas");
-        // Imprimir el tamaño de la rueda trasera
-        System.out.println("Tamaño de la rueda trasera: " + bicicleta.getRuedaTrasera().getTamaño() + " pulgadas");
+        // Imprimir la presión de la rueda delantera
+        System.out.println("Presión de la rueda delantera: " + bicicleta.getRuedaDelantera().getPresion() + " PSI");
+        // Imprimir la presión de la rueda trasera
+        System.out.println("Presión de la rueda trasera: " + bicicleta.getRuedaTrasera().getPresion() + " PSI");
     }
 }
