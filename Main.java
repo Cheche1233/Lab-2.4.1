@@ -1,20 +1,26 @@
 // Clase padre Bicicleta
 class Bicicleta {
     // Componentes de la bicicleta
-    private Rueda rueda; //hijo
-    private Cuadro cuadro; //hijo
-    private String marca;
+    private Rueda ruedaDelantera; // Rueda delantera
+    private Rueda ruedaTrasera; // Rueda trasera
+    private Cuadro cuadro; // Cuadro de la bicicleta
+    private String marca; // Marca de la bicicleta
 
     // Constructor de la clase Bicicleta
-    public Bicicleta(Rueda rueda, Cuadro cuadro, String marca) {
-        this.rueda = rueda;
+    public Bicicleta(Rueda ruedaDelantera, Rueda ruedaTrasera, Cuadro cuadro, String marca) {
+        this.ruedaDelantera = ruedaDelantera;
+        this.ruedaTrasera = ruedaTrasera;
         this.cuadro = cuadro;
         this.marca = marca;
     }
 
     // Métodos getter para los componentes de la bicicleta
-    public Rueda getRueda() {
-        return rueda;
+    public Rueda getRuedaDelantera() {
+        return ruedaDelantera;
+    }
+
+    public Rueda getRuedaTrasera() {
+        return ruedaTrasera;
     }
 
     public Cuadro getCuadro() {
@@ -111,19 +117,21 @@ class Cuadro {
 
 public class Main {
     public static void main(String[] args) {
-        // Crear una rueda
-        Rueda rueda = new Rueda(26, "Negro", "Aluminio");
-        // Imprimir el tamaño de la rueda
-        System.out.println("Tamaño de la rueda: " + rueda.getTamaño() + " pulgadas");
+        // Crear las ruedas
+        Rueda ruedaDelantera = new Rueda(26, "Negro", "Aluminio");
+        Rueda ruedaTrasera = new Rueda(26, "Negro", "Aluminio");
 
         // Crear un cuadro
         Cuadro cuadro = new Cuadro("Aluminio", "MTB", "Grande");
-        // Imprimir el tipo de cuadro
-        System.out.println("Tipo de cuadro: " + cuadro.getTipo());
 
-        // Crear una bicicleta con la rueda y el cuadro
-        Bicicleta bicicleta = new Bicicleta(rueda, cuadro, "Specialized");
+        // Crear una bicicleta con las ruedas y el cuadro
+        Bicicleta bicicleta = new Bicicleta(ruedaDelantera, ruedaTrasera, cuadro, "Specialized");
+
         // Imprimir la marca de la bicicleta
         System.out.println("Marca de la bicicleta: " + bicicleta.getMarca());
+        // Imprimir el tamaño de la rueda delantera
+        System.out.println("Tamaño de la rueda delantera: " + bicicleta.getRuedaDelantera().getTamaño() + " pulgadas");
+        // Imprimir el tamaño de la rueda trasera
+        System.out.println("Tamaño de la rueda trasera: " + bicicleta.getRuedaTrasera().getTamaño() + " pulgadas");
     }
 }
